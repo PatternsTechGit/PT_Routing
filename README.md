@@ -36,16 +36,16 @@ For adding routing details open app-routing.module.ts and add following code in 
 
 ```javascript
    const routes: Routes = [
+        // sets up routes constant where you define your routes
   { path: '', component: DashboardComponent },
   { path: 'create-account', component: CreateAccountComponent}
   { path: 'manage-accounts', component:ManageAccountsComponent },
   { path: 'deposit-funds', component: DepositFundsComponent },
   { path: 'transfer-funds', component: TransferFundsComponent },
-  { path: '**', component: PageNotFoundComponent },
-];
+  { path: '**', component: PageNotFoundComponent },// Wildcard route for a 404 page.
+]; 
 
-Here NgModule is already using routes object for routing.
-
+// configures NgModule imports and exports
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
@@ -61,7 +61,8 @@ Router-outlet in Angular works as a placeholder which is used to load the differ
 
 Add router-outlet html tag in app.component.html as below : 
 
-```
+```javascript
+//<!-- The routed views render in the <router-outlet>-->
 <router-outlet></router-outlet>
 ```
 
@@ -72,6 +73,7 @@ Add the folling code in app.component.html
 ```javascript
   <div>
        <li><a [routerLink]="['/create-account']"><i class="fas fa-user"></i> Create New Account</a></li>
+        // <!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
     <li><a [routerLink]="['/manage-accounts']"><i class="fas fa-users"></i> Manage Accounts</a></li>>
   </div>
 ```
@@ -109,8 +111,8 @@ constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe(params => {
-      this.fromAccountId = params['fromAccountId']; 
-      this.toAccountId = params['toAccountId']; 
+      this.fromAccountId = params['fromAccountId']; // Getting relevant value from params object.
+      this.toAccountId = params['toAccountId']; // Getting relevant value from params object.
    });
   }
 ```
