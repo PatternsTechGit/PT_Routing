@@ -27,7 +27,7 @@ Using the same command create rest of thecomponents.
 
 <font size="5" color="grey">**Step 2 : Configuring Routes**</font>  
 
-Angular CLI automatically injects  `AppRoutingModule` in `app.module.ts` as below :
+Angular CLI automatically injects  `AppRoutingModule` in app.module.ts as below :
 
 If it was not setup during scafolding you can add it manualy. 
 ```
@@ -41,7 +41,7 @@ Define your routes in your Routes array.
 
 Each route in this array is a JavaScript object that contains two properties. First property is path which defines the URL path for the route, Second property is component which defines the component Angular should use for the corresponding path.
 
-Configure routes for each of the component you just created in `app-routing.module.ts` as below: 
+Configure routes for each of the component you just created in app-routing.module.ts as below: 
 
 
 ```javascript
@@ -118,7 +118,7 @@ To pass these parameters modify the 'transfer-founds' route like below :
 ```
 <font size="5" color="grey">**Step 6: Parameterized routes (Fetching route data)**</font>
 
-To fetch the parameter values in transfer-fund.component.ts we will first import angular's [Activated Route](https://angular.io/api/router/ActivatedRoute) and add it in constructor. 
+To fetch the parameter values in transfer-fund.component.ts we will first import angular's [Activated Route](https://angular.io/api/router/ActivatedRoute) and add it in `constructor`. 
 `ActivatedRoute` Provides access to information about a route associated with a component that is loaded in an outlet.
 
 In `ngOnInIt` we will be subscribing the route object to fetch the paramerer values and pass it into a local variable as below: 
