@@ -10,7 +10,7 @@ Angular provides extensive set of navigation feature to accommodate simple scena
 Previously we new scafolded Angular application in which we have integrated 
 
 * FontAwesome
-* Bootstrap. 
+* Bootstrap
 
 In this exercise we will
 
