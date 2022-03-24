@@ -1,13 +1,28 @@
-# Incorporating routing in Anguar application
+# Incorporating routing in Angular application
 
 
-In this exercise we are going to setup routes for a fictitious bank application called BBBank.
+## What is Routing 
 
+Angular provides extensive set of navigation feature to accommodate simple scenario to complex scenario. The process of defining navigation element and the corresponding view is called Routing
 
-Since its going to be an application for a bank , it's going to have components like 
-dashboard, create-account, manage-accounts, deposit-funds and transfer-funds etc
+## About this exercise
 
-we will also create one component to serve as PageNotFound Component, that will be shown when a user tries to access a path which is not configured.  
+Previously we new scafolded Angular application in which we have integrated 
+
+* FontAwesome
+* Bootstrap. 
+
+In this exercise we will
+
+* Creating & Configuring Routes.
+* Parameterized Routes. 
+
+we are going to setup routes for a fictitious bank application called BBBank.
+
+Since its going to be an application for a bank, it's going to have components like 
+dashboard, create-account, manage-accounts, deposit-funds and transfer-funds etc.
+
+we will also create one component to serve as PageNotFound Component, that will be shown when a user tries to access a path which is not configured. 
 
 <font size="5" color="grey">**Step 1 : Creating Component**</font> 
 
@@ -18,6 +33,7 @@ To create a new component run the command as below:
 ```
        ng g component create-account
 ```
+
 Using the same command create rest of thecomponents. 
 
  Once the component is created you will see the component under app folder as below :
@@ -30,6 +46,7 @@ Using the same command create rest of thecomponents.
 Angular CLI automatically injects  `AppRoutingModule` in app.module.ts as below :
 
 If it was not setup during scafolding you can add it manualy. 
+
 ```
  imports: [
     BrowserModule,
@@ -76,9 +93,9 @@ Add router-outlet html tag in app.component.html as below :
 
 <font size="5" color="grey">**Step 4 : Using anchor tags to navigate to the routes**</font>  
 
-At this point you can navigate to the routes manually by simply typing the route path after the base url for exampel to navigate to create-account we can use url as http://localhost:4200/create-account
+At this point you can navigate to the routes manually by simply typing the route path after the base url for example to navigate to create-account we can use url as http://localhost:4200/create-account
 
-In a real scenario we will use an anchor tag to navigate to a certain route. In an anchor tag you can use Angular's routerLink attribute. Set the value of the attribute to the component to show when a user clicks on a particular link.
+In a real scenario we will use an anchor tag to navigate to a certain route. In an anchor tag you can use Angular's router Link attribute. Set the value of the attribute to the component to show when a user clicks on a particular link.
 
 To create an unordered list of links place the code above the <router-outlet> in app.component.html
 
@@ -93,10 +110,11 @@ To create an unordered list of links place the code above the <router-outlet> in
   </div>
 </ul>
 ```
-To add styling in links with icon you can use font Awsome. 
-To add font awsome in angular applicaiton [Click Here](https://github.com/PatternsTechGit/PT_Fontawesoome_Bootstrap)
 
-This will give the applciaiton ability to naigate to a route by clicking on the links. 
+To add styling in links with icon you can use fontawsome. 
+To add fontawsome in angular application [Click Here](https://github.com/PatternsTechGit/PT_Fontawesoome_Bootstrap)
+
+This will give the application ability to navigate to a route by clicking on the links. 
 
 Please note that [routerLink]="['/'] is the default route.
 
@@ -107,7 +125,7 @@ Run the angular application and click on the create new account link to confirm 
 
 <font size="5" color="grey">**Step 5 : Parameterized routes (Passing route params)**</font>  
 
-We often need to pass a parameters to a route. In our scenario to transfer funds from one account to another we will pass fromAccountID and toAccountID to a TransferFundsComponent.
+We often need to pass a parameters to a route. In our scenario to transfer funds from one account to another we will pass fromAccountID and toAccountID to a TransferFundsComponent.html
 
 To pass these parameters modify the 'transfer-founds' route like below :
 
@@ -116,6 +134,7 @@ To pass these parameters modify the 'transfer-founds' route like below :
     <li><a [routerLink]="['/transfer-funds', { fromAccountId: '111', toAccountId: '222' }]"><i class="fas fa-random"></i> Transfer Funds</a></li>
   </div>
 ```
+
 <font size="5" color="grey">**Step 6: Parameterized routes (Fetching route data)**</font>
 
 To fetch the parameter values in transfer-fund.component.ts we will first import angular's [Activated Route](https://angular.io/api/router/ActivatedRoute) and add it in `constructor`. 
@@ -147,6 +166,7 @@ constructor(private route: ActivatedRoute) { }
 FromAccount: {{fromAccountId}}
 ToAccount: {{toAccountId}}
 ```
+
 Run the application and check the parameterize routing is working fine.
 
 ![4](https://user-images.githubusercontent.com/100709775/157685517-7aa20132-d8c5-4a38-8336-df7d5a4874d4.png)
